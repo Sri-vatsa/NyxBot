@@ -1,0 +1,24 @@
+{
+  "name": "nyxxbot",
+  "version": "1.0.0",
+  "description": "Friendly orientation bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sri-vatsa/TestTelegramBot.git"
+  },
+  "author": "Srivatsa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sri-vatsa/TestTelegramBot/issues"
+  },
+  "homepage": "https://github.com/Sri-vatsa/TestTelegramBot#readme",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.27.1",
+    "telebot": "^1.2.2"
+  }
+}
