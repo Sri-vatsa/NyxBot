@@ -1,11 +1,6 @@
 const TeleBot = require('telebot');
 const bot = new TeleBot('368949479:AAHvHZ88ARmTZ50ZCo4MXCCmEIXMMUcyRrw');
 
-var http = require("http");
-  setTimeout(function() {
-    http.get("http://secure-oasis-14648.herokuapp.com");
-}, 300000); // every 5 minutes (300000)
-
 //welcome message
 bot.on(['/start'], (msg) => msg.reply.text('Welcome to Nyx ' + msg.from.first_name + '!'));
 
@@ -57,3 +52,8 @@ bot.start();
 function time() {
     return new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, '$1');
 }
+
+var http = require("http");
+  setInterval(function() {
+    http.get("http://secure-oasis-14648.herokuapp.com");
+}, 300000); // every 5 minutes (300000)
