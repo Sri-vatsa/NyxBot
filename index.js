@@ -4,9 +4,24 @@ const bot = new TeleBot('368949479:AAHvHZ88ARmTZ50ZCo4MXCCmEIXMMUcyRrw');
 //welcome message
 bot.on(['/start'], (msg) => msg.reply.text('Welcome to Nyx ' + msg.from.first_name + '!'));
 
-//different standard replies
+//------------different standard replies---------------//
+
+//reply to sticker sent
 bot.on('sticker', (msg) => {
     return msg.reply.sticker('http://i.imgur.com/VRYdhuD.png', { asReply: true });
+});
+
+//send message if user edits message
+bot.on('edit', (msg) => {
+    return msg.reply.text('I saw it! You edited your message!', { asReply: true });
+});
+
+
+//-------------Functions-------------//
+//for user to make bot send something
+bot.on(/^\/say (.+)$/, (msg, props) => {
+    const text = props.match[1];
+    return bot.sendMessage(msg.from.id, text, { replyToMessage: msg.message_id });
 });
 
 //get time
