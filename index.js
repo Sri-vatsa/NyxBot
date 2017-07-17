@@ -57,3 +57,12 @@ var http = require("http");
   setInterval(function() {
     http.get("http://secure-oasis-14648.herokuapp.com");
 }, 300000); // every 5 minutes (300000)
+
+process.on('uncaughtException', function (err) {
+  console.log(err);
+  twilioClient.messages.create({...}, function(twilioErr, message) {
+    if (twilioErr) {
+      console.log("twilio error: " + twilioErr);
+    }
+  });
+}
