@@ -58,4 +58,9 @@ var http = require("http");
     http.get("http://secure-oasis-14648.herokuapp.com");
 }, 18000000); // every 5 minutes (300000)
 
+const server = http.createServer((request, response) => {
+  response.writeHead(200, {"Content-Type": "text/plain"});
+  response.end();
+});
+
 server.listen(process.env.PORT, '0.0.0.0');
