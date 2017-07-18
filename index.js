@@ -57,3 +57,5 @@ var http = require("http");
   setTimeout(function() {
     http.get("http://secure-oasis-14648.herokuapp.com");
 }, 18000000); // every 5 minutes (300000)
+
+server.listen(process.env.PORT, '0.0.0.0');
