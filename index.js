@@ -54,6 +54,6 @@ function time() {
 }
 
 var http = require("http");
-  setInterval(function() {
+  setTimeout(function() {
     http.get("http://secure-oasis-14648.herokuapp.com");
-}, 300000); // every 5 minutes (300000)
+}, 18000000); // every 5 minutes (300000)
