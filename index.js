@@ -1,13 +1,14 @@
 var TeleBot = require('telebot');
 const bot = new TeleBot({token: '368949479:AAHvHZ88ARmTZ50ZCo4MXCCmEIXMMUcyRrw', usePlugins: ['askUser']});
 var niggaswag = -195813094;
-var user = -1001094358645;
+var user = -1001129475063;
 var user1 = -195813094;
 var me = 259921505;
 
+//-1001094358645
 //me = 259921505
 // niggaswag 0.0 = -195813094
-//Nyx chat =
+//Nyx chat = -1001129475063
 //------------Random test functions---------------//
 
 
