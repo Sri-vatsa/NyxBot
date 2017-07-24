@@ -1,21 +1,26 @@
 var TeleBot = require('telebot');
 const bot = new TeleBot({token: '368949479:AAHvHZ88ARmTZ50ZCo4MXCCmEIXMMUcyRrw', usePlugins: ['askUser']});
-var niggaswag = -1001094358645;
-var user = 259921505;
+var niggaswag = -195813094;
+var user = -1001094358645;
+var user1 = -195813094;
+var me = 259921505;
 
+//me = 259921505
+// niggaswag 0.0 = -195813094
+//Nyx chat =
 //------------Random test functions---------------//
 
 
 //------------different standard replies---------------//
 
 //reply to sticker sent
-bot.on('sticker', (msg) => {
+/*bot.on('sticker', (msg) => {
   return msg.reply.sticker('http://i.imgur.com/VRYdhuD.png', { asReply: true });
-});
+});*/
 
 //send message if user edits message
 bot.on('edit', (msg) => {
-  return msg.reply.text('I saw it! You edited your message!', { asReply: true });
+  return msg.reply.text('I saw it! You edited your message!;)', { asReply: true });
 });
 
 //when any user says hi/hello
@@ -26,6 +31,25 @@ bot.on('text', (msg) => {
   var greeting3 = "hello";
   if (msg.text.toLowerCase() ===  greeting1 || msg.text.toLowerCase() === greeting2 || msg.text.toLowerCase() === greeting3) {
     bot.sendMessage(msg.chat.id, "Hi " + msg.from.first_name + " :)");
+  }
+});
+
+//initiate NyxxBot
+bot.on(['/initiate'], (msg) => msg.reply.text('Hi Everyone! I am NyxBot:)'));
+
+bot.on('text', (msg) => {
+  var start = "start";
+  if(msg.text.toLowerCase() === start && msg.chat.id === niggaswag) {
+    bot.sendMessage(user, "Welcome to Nyx! Over next 3 days, I will give all of you tasks to complete as part of getting initiated to Nocturna.");
+  }
+});
+
+
+//initiate the bot
+bot.on('text', (msg) => {
+  var welcome = "welcome nyx bot";
+  if(msg.text.toLowerCase() === welcome) {
+    bot.sendMessage(msg.chat.id, "Hello Everyone:)");
   }
 });
 
@@ -54,14 +78,20 @@ bot.on('text', (msg) => {
 //-------------Functions-------------//
 
 // <--- welcome message --/start --->
-bot.on(['/start'], (msg) => msg.reply.text('Welcome to Nyx ' + msg.from.first_name + '!' + '\nEnter /help to begin'));
+bot.on(['/start'], (msg) => msg.reply.text('Welcome to Nyx ' + msg.from.first_name + '!' + ' Over next 3 days, I will give all of you tasks to complete as part of getting initiated to Nocturna.'));
 
-//<---help message --/help --->
+//<--- general help message --/help --->
 bot.on(['/help'], (msg) => msg.reply.text(
-  '/start -- Get greeted!\n/say -- make the bot say something(e.g /say Black House Swag!)\nType @Nyxxbot followed by task number(e.g. @Nyxxbot task1)'
+  '/start -- Get greeted!\n/say -- make the bot say something(e.g /say Black House Swag!)'
 ));
 
 //<-- implement help for admin -->
+bot.on('text', (msg) => {
+  var help = "/help";
+  if(msg.text.toLowerCase() === help && msg.chat.id === niggaswag) {
+    bot.sendMessage(user, "/start -- Get greeted!\n/say -- make the bot say something(e.g /say Black House Swag!)\n\nActivate tasks:\nType task followed by a task number(e.g. @Nyxxbot task1)\n\nConfirmation of activities:\nType Awesome/Nice/Great");
+  }
+});
 
 //<--- for user to make bot send something -- /say --->
 bot.on(/^\/say (.+)$/, (msg, props) => {
@@ -101,24 +131,26 @@ function time() {
 /*
 1. spin in circles for 20 rounds then put lipstick on someone
 2. take a batch photo
-3. take a photo with a senior who is _____ (add characteristic here)
+3. take a photo with a senior who loves coldplay
 4. 30 seconds music video of swalla
 5. make any oweek comm member laugh with a pickup line (without joash)
 6. take a jump shot everyone must jump in ascending height
 7. do spider-man dance from d1 bus stop to food clique
-8. take a photo with 4 other people from different faculties in black house
+8. take a photo with 5 other people from different faculties from usp
 9. drink a weird concoction of drinks
 10. replicate stupid wenjie videos
 11. find a phallic object in Cinnamon lobby
 12. use any foreign word and hold an entire conversation with another house ogl
-13. join NoctaBot*/
+13. join NoctaBot
+14. take a photo with a senior who went to Ultra Music Festival 2017
+15. WCP task*/
 
 //get list of Tasks
 bot.on('text', (msg) => {
   var tasklist1 = "tasklist";
   var tasklist2 = "taskslist";
   if(msg.text.toLowerCase() ===  tasklist1 || msg.text.toLowerCase() ===  tasklist2) {
-    bot.sendMessage(niggaswag, "1. spin in circles for 20 rounds then put lipstick on someone\n2. take a batch photo\n3. take a photo with a senior who is _____ (add characteristic here)\n4. 30 seconds music video of swalla\n5. make any oweek comm member laugh with a pickup line (without joash)\n6. take a jump shot everyone must jump in ascending height\n7. do spider-man dance from d1 bus stop to food clique\n8. take a photo with 4 other people from different faculties in black house\n9. drink a weird concoction of drinks\n10. replicate stupid wenjie videos\n11. find a phallic object in Cinnamon lobby\n12. use any foreign word and hold an entire conversation with another house ogl\n13.Join NoctaBot");
+    bot.sendMessage(niggaswag, "1. spin in circles for 20 rounds then put lipstick on someone\n2. take a batch photo\n3. take a photo with a senior who loves coldplay\n4. 30 seconds music video of swalla\n5. make any oweek comm member laugh with a pickup line (without joash)\n6. take a jump shot everyone must jump in ascending height\n7. do spider-man dance from d1 bus stop to food clique\n8. take a photo with 4 other people from different faculties in black house\n9. drink a weird concoction of drinks\n10. replicate stupid wenjie videos\n11. find a phallic object in Cinnamon lobby\n12. use any foreign word and hold an entire conversation with another house ogl\n13.Join NoctaBot\n14.take a photo with a senior who went to Ultra Music Festival 2017\n15.WCP task");
   }
 });
 
@@ -148,11 +180,11 @@ bot.on('text', (msg) => {
   }
 });
 
-//task 3 - take a pic with a senior who is _____
+//task 3 - take a pic with a senior who went to coldplay
 bot.on('text', (msg) => {
   var task = "task3";
   if(msg.chat.id === niggaswag && msg.text.toLowerCase() ===  task) {
-    bot.sendMessage(user, "Find a senior who is _____");
+    bot.sendMessage(user, "Find a senior who went to coldplay concert");
     bot.sendMessage(user, "Don't forget to send that picture to me! ");
   }
 });
@@ -192,11 +224,11 @@ bot.on('text', (msg) => {
   }
 });
 
-//task 8 -- take a photo with 4 other people from different faculties in black house
+//task 8 -- take a photo with 5 other people from different faculties from usp
 bot.on('text', (msg) => {
   var task = "task8";
   if(msg.chat.id === niggaswag && msg.text.toLowerCase() ===  task) {
-    bot.sendMessage(user, "Find 4 other people from different faculties within Nocturna & snap a pic with them!");
+    bot.sendMessage(user, "Find 5 other people from different faculties & snap a pic with them:)\nRemember, no two people can be from the same house!");
     bot.sendMessage(user, "Don't forget to share that picture with me!");
   }
 });
@@ -241,6 +273,35 @@ bot.on('text', (msg) => {
   }
 });
 
+//task 14 - take a pic with a senior who has been to
+bot.on('text', (msg) => {
+  var task = "task14";
+  if(msg.chat.id === niggaswag && msg.text.toLowerCase() ===  task) {
+    bot.sendMessage(user, "Find a senior who went to Ultra Music Festival 2017!");
+    bot.sendMessage(user, "Don't forget to send that picture to me! ");
+  }
+});
+
+//task 15 -- WCP task
+bot.on('text', (msg) => {
+  var task = "task15";
+  if(msg.chat.id === niggaswag && msg.text.toLowerCase() ===  task) {
+    bot.sendMessage(user, "WCP Surprise task;)")
+  }
+});
+
+//------------Send users confirmation--------------//
+bot.on('text', (msg) => {
+  var awesome = "Awesome";
+  var great = "great";
+  var nice = "nice";
+  if(msg.chat.id === niggaswag) {
+    if(msg.text.toLowerCase() === awesome || msg.text.toLowerCase() === great || msg.text.toLowerCase() === nice) {
+      bot.sendMessage(user, "Yay! Good job:)");
+    }
+  }
+
+});
 
 //-------------Server side-------------//
 bot.start();
