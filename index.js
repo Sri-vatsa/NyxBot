@@ -291,6 +291,14 @@ bot.on('text', (msg) => {
   }
 });
 
+//task 16 -- Ask an academic question
+bot.on('text', (msg) => {
+  var task = "task16";
+  if(msg.chat.id === niggaswag && msg.text.toLowerCase() ===  task) {
+    bot.sendMessage(user, "Ask any speaker one legit question. The talks left are pastoral care by Yunxian and a safety briefing. Don't bother cheating. Your OGLs will confirm;)");
+  }
+});
+
 //------------Send users confirmation--------------//
 bot.on('text', (msg) => {
   var awesome = "Awesome";
