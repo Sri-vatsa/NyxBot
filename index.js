@@ -312,6 +312,13 @@ bot.on('text', (msg) => {
 
 });
 
+bot.on('text', (msg) => {
+  var forfeit = "forfeit";
+  if(msg.chat.id === niggaswag && msg.text.toLowerCase() === forfeit) {
+    bot.sendMessage(user, "Ohnoooo :( Ya'll didn't make it. We need you to do a forfeit)");
+  }
+});
+
 //-------------Server side-------------//
 bot.start();
 
